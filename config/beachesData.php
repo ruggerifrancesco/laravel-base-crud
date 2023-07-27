@@ -1,6 +1,6 @@
 <?php
 return [
-    $cities => [
+    'cities' => [
         'Roma',
         'Torino',
         'Firenze',
@@ -10,5 +10,16 @@ return [
         'Riccione',
         'Formentera',
         'Ibiza'
+    ],
+
+    'names' => [
+        'Lido dei Pini',
+        'Lido degli Estensi',
+        'Lido di Ostia',
+        'Spiaggia Azzura',
+        'Mare fuori',
+        'Spiaggia Calabria',
+        'Lido le 5 terre',
+        'Spiaggia Tropical'
     ],
 ];

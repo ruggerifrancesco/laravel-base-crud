@@ -16,8 +16,8 @@ class BeachSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $names = config('beachesData.names');
         $cities = config('beachesData.cities');
+        $names = config('beachesData.names');
 
         for ($i=0; $i < 30; $i++) {
             $newBeach = new Beach();
