@@ -38,7 +38,8 @@ class BeachController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $beaches = $request->all();
+        @dd($beaches);
     }
 
     /**

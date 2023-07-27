@@ -8,7 +8,7 @@
         <div class="container text-white">
 
             <h3 class="text-center mb-5">Create New Beach</h3>
-            <form action="" method="POST">
+            <form action="{{ route('admin.beaches.store') }}" method="POST">
                 @csrf
 
                 <div class="row">
@@ -44,13 +44,13 @@
                             <label for="thumb" class="form-label">
                                 Image url (DISABLED)
                             </label>
-                            <input type="text" class="form-control" id="thumb" name="thumb" disabled>
+                            <input type="text" class="form-control" id="thumb" disabled>
                         </div>
                         <div class="mb-3">
                             <label for="umbrellas_day_price " class="form-label">
                                 Price
                             </label>
-                            <input type="number" class="form-control" id="umbrellas_day_price" name="umbrellas_day_price" required>
+                            <input type="text" class="form-control" id="umbrellas_day_price" name="umbrellas_day_price" required>
                         </div>
                         <div class="mb-3">
                             <label for="opening_date" class="form-label">
