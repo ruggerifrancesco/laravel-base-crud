@@ -39,7 +39,12 @@ class BeachController extends Controller
     public function store(Request $request)
     {
         $beaches = $request->all();
-        @dd($beaches);
+
+        $beach = new Beach();
+        $beach->fill($beaches);
+        $beach->save();
+
+        return redirect()->route('admin.beaches.index', $beach->id);
     }
 
     /**
