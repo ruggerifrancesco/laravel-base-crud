@@ -17,7 +17,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('admin.beaches.index') }}">Lista</a></li>
-                            <li><a class="dropdown-item" href="#">Create</a></li>
+                            <li><a class="dropdown-item" href="{{ route('admin.beaches.create') }}">Create</a></li>
                         </ul>
                     </li>
                 </ul>

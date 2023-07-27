@@ -27,7 +27,7 @@ class BeachController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.beaches.create');
     }
 
     /**
