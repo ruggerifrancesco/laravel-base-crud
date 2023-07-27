@@ -22,8 +22,8 @@ return new class extends Migration
             $table->float('umbrellas_day_price')->unsigned();
             $table->date('opening_date');
             $table->date('closing_date');
-            $table->boolean('has_volley');
-            $table->boolean('has_football');
+            $table->boolean('has_volley')->default(false);
+            $table->boolean('has_football')->default(false);
             $table->text('description')->nullable();
             $table->softDeletes();
             $table->timestamps();
