@@ -16,7 +16,7 @@
                         Beaches
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Lista</a></li>
+                            <li><a class="dropdown-item" href="{{ route('admin.beaches.index') }}">Lista</a></li>
                             <li><a class="dropdown-item" href="#">Create</a></li>
                         </ul>
                     </li>

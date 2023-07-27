@@ -35,7 +35,7 @@
                         <td>{{ $beach->has_volley ? 'YES' : 'NO' }}</td>
                         <td>{{ $beach->has_football ? 'YES' : 'NO'  }}</td>
                         <td class="d-flex gap-1">
-                            <a href="" class="btn btn-warning">
+                            <a href="{{ route('admin.beaches.show', $beach->id) }}" class="btn btn-warning">
                                 <i class="fa-solid fa-eye"></i>
                             </a>
                             <a href="" class="btn btn-info">
