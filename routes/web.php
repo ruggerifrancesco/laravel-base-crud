@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\BeachController;
+use App\Http\Controllers\Guest\GuestPageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
+// Guest Side Client
+Route::get('/', [GuestPageController::class, 'home'])->name('guest.home');
+Route::get('/beaches', [GuestPageController::class, 'index'])->name('guest.beaches.index');
+
+// Admin Side Client
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('/beaches', BeachController::class);
 });

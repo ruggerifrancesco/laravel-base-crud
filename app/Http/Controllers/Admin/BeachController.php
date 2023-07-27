@@ -14,7 +14,7 @@ class BeachController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.beaches.index');
     }
 
     /**
