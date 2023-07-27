@@ -10,4 +10,17 @@ class Beach extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    protected $fillable = [
+        'name',
+        'city',
+        'n_umbrellas',
+        'n_seats',
+        'umbrellas_day_price',
+        'opening_date',
+        'closing_date',
+        'has_volley',
+        'has_football',
+        'description',
+    ];
 }
