@@ -47,9 +47,11 @@ class BeachController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Int $id)
     {
-        //
+        $beach = Beach::findOrFail($id);
+
+        return view('admin.beaches.show', compact('beach'));
     }
 
     /**
