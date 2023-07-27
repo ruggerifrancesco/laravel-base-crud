@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Beach;
 use Illuminate\Http\Request;
 
 class BeachController extends Controller
@@ -14,7 +15,9 @@ class BeachController extends Controller
      */
     public function index()
     {
-        return view('admin.beaches.index');
+        $beaches = Beach::paginate(10);
+
+        return view('admin.beaches.index', compact('beaches'));
     }
 
     /**
