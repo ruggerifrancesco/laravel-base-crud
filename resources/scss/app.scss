@@ -6,12 +6,56 @@ body.admin-client {
 }
 
 main.admin-client {
-    height: calc(100vh - 70px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: calc(100vh - 70px - 8rem);
+    margin-top: 8rem;
 }
 
 .navbar_admin-client {
     height: 70px;
+}
+
+.pagination {
+    position: absolute;
+    bottom: 5rem;
+    left: 0;
+}
+
+.pagination .page-item {
+    margin-right: 5px;
+    background-color: #212529 !important;
+    border: 1px solid #212529 !important;
+    color: white !important;
+    border-radius: 0.25rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #adb5bd;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: none;
+    color: #adb5bd;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.pagination .page-link {
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: #0d1117;
+}
+
+.pagination .page-link:hover {
+    z-index: 2;
+    color: white;
+    text-decoration: none;
+}
+
+.pagination .page-item:first-child .page-link,
+.pagination .page-item:last-child .page-link {
+    border-radius: 0.25rem;
 }
