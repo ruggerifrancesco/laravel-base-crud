@@ -7,6 +7,9 @@ body.admin-client {
 
 main.admin-client {
     height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .navbar_admin-client {
