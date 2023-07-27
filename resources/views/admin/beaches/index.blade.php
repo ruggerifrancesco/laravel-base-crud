@@ -32,8 +32,8 @@
                         <td>${{ $beach->umbrellas_day_price }}</td>
                         <td>{{ $beach->opening_date }}</td>
                         <td>{{ $beach->closing_date }}</td>
-                        <td>{{ $beach->has_volley }}</td>
-                        <td>{{ $beach->has_football }}</td>
+                        <td>{{ $beach->has_volley ? 'YES' : 'NO' }}</td>
+                        <td>{{ $beach->has_football ? 'YES' : 'NO'  }}</td>
                         <td class="d-flex gap-1">
                             <a href="" class="btn btn-warning">
                                 <i class="fa-solid fa-eye"></i>
