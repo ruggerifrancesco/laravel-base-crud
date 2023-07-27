@@ -8,7 +8,7 @@
         <div class="container text-white">
 
             <h3 class="text-center mb-5">Create New Beach</h3>
-            <form action="{{ route('admin.beaches.store') }}" method="POST">
+            <form action="{{ route('admin.beaches.store') }}" method="POST" id="createBeachForm">
                 @csrf
 
                 <div class="row">
@@ -97,4 +97,24 @@
         </div>
     </div>
 </div>
+@endsection
+
+
+@section('custom-script-tail')
+<script>
+    const createForm = document.getElementById('createBeachForm').addEventListener('submit', function(event){
+        event.preventDefault();
+
+        const volleyCheckbox = document.getElementById('has_volley');
+        const footballCheckbox = document.getElementById('has_football');
+
+        const volleyValue = volleyCheckbox.checked ? 1 : 0;
+        const footballValue = footballCheckbox.checked ? 1 : 0;
+
+        volleyCheckbox.value = volleyValue;
+        footballCheckbox.value = footballValue;
+
+        this.submit();
+    })
+</script>
 @endsection

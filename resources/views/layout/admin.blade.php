@@ -16,5 +16,7 @@
     <main class="admin-client">
         @yield('admin-content')
     </main>
+
+    @yield('custom-script-tail')
 </body>
 </html>
