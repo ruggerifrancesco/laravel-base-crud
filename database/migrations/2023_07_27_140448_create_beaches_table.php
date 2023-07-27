@@ -15,15 +15,17 @@ return new class extends Migration
     {
         Schema::create('beaches', function (Blueprint $table) {
             $table->id();
-            $table->name();
-            $table->city();
-            $table->n_umbrellas();
-            $table->n_seats();
-            $table->umbrellas_day_price();
-            $table->opening_date();
-            $table->closing_date();
-            $table->has_volley();
-            $table->has_football();
+            $table->string('name', 60);
+            $table->string('city', 100);
+            $table->integer('n_umbrellas')->unsigned();
+            $table->integer('n_seats')->unsigned();
+            $table->float('umbrellas_day_price')->unsigned();
+            $table->date('opening_date');
+            $table->date('closing_date');
+            $table->boolean('has_volley');
+            $table->boolean('has_football');
+            $table->text('description')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
