@@ -1,1 +1,14 @@
 @import "~bootstrap/scss/bootstrap";
+
+// Admin Client
+body.admin-client {
+    background-color: #0d1117;
+}
+
+main.admin-client {
+    height: calc(100vh - 70px);
+}
+
+.navbar_admin-client {
+    height: 70px;
+}

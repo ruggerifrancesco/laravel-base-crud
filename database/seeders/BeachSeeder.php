@@ -16,31 +16,8 @@ class BeachSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $cities = [
-            'Roma',
-            'Torino',
-            'Firenze',
-            'Otranto',
-            'Catania',
-            'Los Angeles',
-            'Riccione',
-            'Formentera',
-            'Ibiza'
-        ];
-
-        $names = [
-            'Lido dei Pini',
-            'Lido degli Estensi',
-            'Lido di Ostia',
-            'Spiaggia Azzura',
-            'Mare fuori',
-            'Spiaggia Calabria',
-            'Lido le 5 terre',
-            'Spiaggia Tropical'
-        ];
-
-        $openingDate = $faker->dateTimeBetween('-2 months', '-1 months');
-        $closingDate = $faker->dateTimeBetween($openingDate, '+2 months');
+        $names = config('beachesData.names');
+        $cities = config('beachesData.cities');
 
         for ($i=0; $i < 30; $i++) {
             $newBeach = new Beach();
@@ -50,8 +27,8 @@ class BeachSeeder extends Seeder
             $newBeach->n_umbrellas = $faker->numberBetween(20, 60);
             $newBeach->n_seats = $faker->numberBetween(30, 80);
             $newBeach->umbrellas_day_price = $faker->randomFloat(2, 10, 80);
-            $newBeach->opening_date = $openingDate;
-            $newBeach->closing_date = $closingDate;
+            $newBeach->opening_date = $faker->dateTimeBetween('-2 months', '-1 months');
+            $newBeach->closing_date = $faker->dateTimeBetween('-2 months', '+2 months');
             $newBeach->has_volley = $faker->boolean();
             $newBeach->has_football = $faker->boolean();
             $newBeach->description = $faker->text(300);

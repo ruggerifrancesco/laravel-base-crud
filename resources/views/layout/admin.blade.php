@@ -8,10 +8,10 @@
 
     @vite('resources/js/app.js')
 </head>
-<body>
+<body class="admin-client">
     @include('admin.partials.header')
-    
-    <main>
+
+    <main class="admin-client">
         @yield('admin-content')
     </main>
 </body>
