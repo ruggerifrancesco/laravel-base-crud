@@ -14,6 +14,9 @@ main.admin-client {
     height: 70px;
 }
 
+
+// Pagination Element
+
 .pagination {
     position: absolute;
     bottom: 5rem;
@@ -21,36 +24,41 @@ main.admin-client {
 }
 
 .pagination .page-item {
-    margin-right: 5px;
     background-color: #212529 !important;
     border: 1px solid #212529 !important;
-    color: white !important;
-    border-radius: 0.25rem;
     font-size: 2rem;
     font-weight: bold;
+    margin-left: 5px;
+
+    &:first-child {
+        border-top-left-radius: 0.3rem;
+        border-bottom-left-radius: 0.3rem;
+        margin-left: 0;
+    }
+
+    &:last-child {
+        border-top-right-radius: 0.3rem;
+        border-bottom-right-radius: 0.3rem;
+    }
 }
 
-.pagination .page-item.disabled .page-link {
-    color: #adb5bd;
-    pointer-events: none;
-    cursor: not-allowed;
-}
-
+.pagination .page-item.disabled .page-link,
 .pagination .page-item.active .page-link {
-    background-color: none;
-    color: #adb5bd;
+    color: white;
     pointer-events: none;
     cursor: not-allowed;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 .pagination .page-link {
     background-color: transparent;
     border: 1px solid transparent;
-    color: #0d1117;
+    color: #696a6b;
 }
 
 .pagination .page-link:hover {
-    z-index: 2;
     color: white;
     text-decoration: none;
 }
