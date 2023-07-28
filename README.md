@@ -70,6 +70,7 @@ Template to generate a new standard and simple project using Laravel 9.2, Bootst
 ## Steps to use unspash API key correctly
 - Open https://unsplash.com/developers and register as new developer
 - Once you register, you can scroll down, until you find the section called `Keys`
+- Create a new config file called `unsplashKey.php`
 - Copy the Access Key and paste in the config called `unsplashKey.php`
     - (To solve the problem of too many elements, i had to reduce to a one second interval for each call, versus how many mockup beaches are desired)
 
