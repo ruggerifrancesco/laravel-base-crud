@@ -39,6 +39,8 @@ class BeachController extends Controller
     public function store(Request $request)
     {
         $beaches = $request->all();
+        $beaches['has_volley'] = $request->has('has_volley') ? 1 : 0;
+        $beaches['has_football'] = $request->has('has_football') ? 1 : 0;
 
         $beach = new Beach();
         $beach->fill($beaches);
@@ -80,9 +82,11 @@ class BeachController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Int $id)
     {
         $beaches = $request->all();
+        $beaches['has_volley'] = $request->has('has_volley') ? 1 : 0;
+        $beaches['has_football'] = $request->has('has_football') ? 1 : 0;
 
         $beach = Beach::findOrFail($id);
         $beach->fill($beaches);
