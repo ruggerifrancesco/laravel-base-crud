@@ -6,6 +6,8 @@ use App\Models\Beach;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
+use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Config;
 
 class BeachSeeder extends Seeder
 {
@@ -18,8 +20,11 @@ class BeachSeeder extends Seeder
     {
         $cities = config('beachesData.cities');
         $names = config('beachesData.names');
+        $elements = config('beachesData.elements');
 
-        for ($i=0; $i < 30; $i++) {
+        $client = new Client();
+
+        for ($i=0; $i < $elements; $i++) {
             $newBeach = new Beach();
 
             $newBeach->name = $faker->randomElement($names);
@@ -32,6 +37,23 @@ class BeachSeeder extends Seeder
             $newBeach->has_volley = $faker->boolean();
             $newBeach->has_football = $faker->boolean();
             $newBeach->description = $faker->text(300);
+
+            // Introduce a delay between requests to avoid rate limits
+            sleep(1); // Sleep for 1 second
+
+            // Fetch a random Unsplash image URL
+            $response = $client->get('https://api.unsplash.com/photos/random', [
+                'query' => [
+                    'client_id' => Config::get('unsplashKey.access_key'),
+                    'query' => 'beach',
+                ],
+                'verify' => false, // Disable SSL verification
+            ]);
+
+            $data = json_decode($response->getBody(), true);
+
+            // Save the Unsplash image URL in the 'thumb' column
+            $newBeach->thumb = $data['urls']['regular'];
 
             $newBeach->save();
         }
