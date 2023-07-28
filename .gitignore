@@ -13,4 +13,5 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+/config/unsplashKey.php
 package-lock.json
