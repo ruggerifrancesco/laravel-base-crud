@@ -50,7 +50,7 @@
                             <a href="{{ route('admin.beaches.show', $beach->id) }}" class="btn btn-warning">
                                 <i class="fa-solid fa-eye"></i>
                             </a>
-                            <a href="" class="btn btn-info">
+                            <a href="{{ route('admin.beaches.edit', $beach->id) }}" class="btn btn-info">
                                 <i class="fa-solid fa-pen"></i>
                             </a>
                             <form action="" method="post">
