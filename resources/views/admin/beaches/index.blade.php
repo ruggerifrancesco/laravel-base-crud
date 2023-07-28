@@ -53,7 +53,9 @@
                             <a href="{{ route('admin.beaches.edit', $beach->id) }}" class="btn btn-info">
                                 <i class="fa-solid fa-pen"></i>
                             </a>
-                            <form action="" method="post">
+                            <form action="{{ route('admin.beaches.destroy', $beach->id) }}" method="post">
+                            @csrf
+                            @method('DELETE')
                                 <button type="submit" class="btn btn-danger">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>

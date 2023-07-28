@@ -103,6 +103,8 @@ class BeachController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $beach = Beach::findOrFail($id);
+        $beach->delete();
+        return redirect()->route("admin.beaches.index");
     }
 }
