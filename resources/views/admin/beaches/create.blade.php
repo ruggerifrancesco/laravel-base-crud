@@ -97,23 +97,3 @@
     </div>
 </div>
 @endsection
-
-
-@section('custom-script-tail')
-<script>
-    const createForm = document.getElementById('createBeachForm').addEventListener('submit', function(event){
-        event.preventDefault();
-
-        const volleyCheckbox = document.getElementById('has_volley');
-        const footballCheckbox = document.getElementById('has_football');
-
-        const volleyValue = volleyCheckbox.checked ? 1 : 0;
-        const footballValue = footballCheckbox.checked ? 1 : 0;
-
-        volleyCheckbox.value = volleyValue;
-        footballCheckbox.value = footballValue;
-
-        this.submit();
-    })
-</script>
-@endsection
