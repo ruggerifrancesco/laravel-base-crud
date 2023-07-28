@@ -55,7 +55,7 @@ class BeachController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Int $id)
+    public function show (Int $id)
     {
         $beach = Beach::findOrFail($id);
 
@@ -68,7 +68,7 @@ class BeachController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Int $id)
+    public function edit (Int $id)
     {
         $beach = Beach::findOrFail($id);
 
@@ -82,7 +82,7 @@ class BeachController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Int $id)
+    public function update (Request $request, Int $id)
     {
         $beaches = $request->all();
         $beaches['has_volley'] = $request->has('has_volley') ? 1 : 0;
@@ -101,20 +101,23 @@ class BeachController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy (Int $id)
     {
         $beach = Beach::findOrFail($id);
         $beach->delete();
         return redirect()->route("admin.beaches.index");
     }
 
-    public function trashed() {
+    public function trashed ()
+    {
         $beaches = Beach::onlyTrashed()->paginate(10);
         return view('admin.beaches.trashed', compact('beaches'));
     }
 
-    public function restore() {
-        
-
+    public function restore (Int $id)
+    {
+        $beach = Beach::withTrashed()->findOrFail($id);
+        $beach->restore();
+        return redirect()->route('admin.beaches.index')->with('restored', $beach->name);
     }
 }
