@@ -82,7 +82,13 @@ class BeachController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $beaches = $request->all();
+
+        $beach = Beach::findOrFail($id);
+        $beach->fill($beaches);
+        $beach->save();
+
+        return redirect()->route('admin.beaches.show', $beach->id);
     }
 
     /**

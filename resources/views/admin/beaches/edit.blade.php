@@ -7,7 +7,7 @@
     <div class="row">
         <div class="container text-white">
 
-            <form action="" method="POST" id="editBeachForm">
+            <form action="{{ route('admin.beaches.update', $beach->id) }}" method="POST" id="editBeachForm">
                 @csrf
                 @method('PUT')
 
