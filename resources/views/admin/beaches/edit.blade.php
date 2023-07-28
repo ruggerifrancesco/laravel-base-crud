@@ -78,12 +78,12 @@
                     <div class="form-check form-switch">
                         <label class="form-check-label" for="has_volley">Volley</label>
                         <input class="form-check-input" type="checkbox" role="switch" id="has_volley" name="has_volley"
-                            value="1" {{ old('has_volley', $beach->has_volley) ? 'checked' : '' }}>
+                            value="0" {{ old('has_volley', $beach->has_volley) ? 'checked' : '' }}>
                     </div>
                     <div class="form-check form-switch">
                         <label class="form-check-label" for="has_football">Football</label>
                         <input class="form-check-input" type="checkbox" role="switch" id="has_football" name="has_football"
-                            value="1" {{ old('has_football', $beach->has_football) ? 'checked' : '' }}>
+                            value="0" {{ old('has_football', $beach->has_football) ? 'checked' : '' }}>
                     </div>
                 </div>
 
@@ -103,23 +103,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@section('custom-script-tail')
-<script>
-    const createForm = document.getElementById('editBeachForm').addEventListener('submit', function(event){
-        event.preventDefault();
-
-        const volleyCheckbox = document.getElementById('has_volley');
-        const footballCheckbox = document.getElementById('has_football');
-
-        const volleyValue = volleyCheckbox.checked ? 1 : 0;
-        const footballValue = footballCheckbox.checked ? 1 : 0;
-
-        volleyCheckbox.value = volleyValue;
-        footballCheckbox.value = footballValue;
-
-        this.submit();
-    })
-</script>
 @endsection
