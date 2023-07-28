@@ -53,7 +53,7 @@
                         <a href="{{ route('admin.beaches.edit', $beach->id) }}" class="btn btn-info">
                             <i class="fa-solid fa-pen"></i>
                         </a>
-                        <form action="{{ route('admin.beaches.destroy', $beach->id) }}" method="post">
+                        <form action="{{ route('admin.beaches.destroy', $beach->id) }}" method="post" class="form-delete">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">
@@ -71,4 +71,13 @@
         {!! $beaches->links('admin.partials.pagination') !!}
     </div>
 </div>
+@endsection
+
+@section('custom-script-tail')
+<script>
+    const deleteForm = document.querySelectorAll('form-delete');
+    deleteForm.addEventListener(('submit'), function(event) {
+
+    })
+</script>
 @endsection

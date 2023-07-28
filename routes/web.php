@@ -20,6 +20,8 @@ Route::get('/', [GuestPageController::class, 'home'])->name('guest.home');
 Route::get('/beaches', [GuestPageController::class, 'index'])->name('guest.beaches.index');
 
 // Admin Side Client
+
 Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/beaches/trashed', [BeachController::class, 'trashed'])->name('beaches.trashed');
     Route::resource('/beaches', BeachController::class);
 });
