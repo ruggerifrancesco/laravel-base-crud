@@ -11,7 +11,7 @@
                 <div class="card-header"></div>
                 <div class="row g-0">
                   <div class="col-md-4">
-                    <img src="..." class="img-fluid rounded-start" alt="...">
+                    <img src="{{ $beach->thumb }}" class="img-fluid rounded-start" alt="{{ $beach->name }}">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
