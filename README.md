@@ -65,3 +65,27 @@ Template to generate a new standard and simple project using Laravel 9.2, Bootst
     - run `npm run dev` to build iteratively our front-end packages and code
     - run `php artisan serve` to build iteratively our back-end packages and code
 - Start changing the world with your oustanding code!
+
+
+## Steps to use unspash API key correctly
+- Open https://unsplash.com/developers and register as new developer
+- Once you register, you can scroll down, until you find the section called `Keys`
+- Copy the Access Key and paste in the config called `unsplashKey.php`
+    - (To solve the problem of too many elements, i had to reduce to a one second interval for each call, versus how many mockup beaches are desired)
+
+- Once you are done with the api key, you can change the numbers of the elements in config `beachesData.php` ('elements')
+
+
+- If you encounter en error and is looking like this
+    `  cURL error 60: SSL certificate problem: unable to get local issuer certificate (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://api.unsplash.com/photos/random?client_id=wv51l-j4ExuKFvOVDJXCfnSR7zQajReJIDYnD5xWQiI&query=beach `. 
+    
+- **(Its expected, you can solve it by following this other steps):**
+
+    - Download the `cacert.pem` file from the cURL website: https://curl.se/ca/cacert.pem
+    - In MAMP FOLDER, you will need to put hte file in the right as where `php.ini` belong
+        - Go to the conf and bin folder, select the right version folder of php you are using and put it in (REMEMBER FOR BOTH FOLDERS where php.ini is)
+    - Next open only the `php.ini` from the bin folder
+    - Search `;curl.cainfo`, unsign it by removing the ';', and ater you have to indicate the path for the certificate you put in the bin folder
+        - **It should look like this`"path/to/cacert.pem"`**
+
+- After all of this you can now seed properly the migration Database and enjoy the random images from unsplash
