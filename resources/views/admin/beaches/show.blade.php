@@ -58,7 +58,7 @@
                   </div>
                 </div>
                 <div class="card-footer d-flex gap-1 justify-content-center">
-                    <a href="" class="btn btn-info">
+                    <a href="{{ route('admin.beaches.edit', $beach->id) }}" class="btn btn-info">
                         <i class="fa-solid fa-pen"></i>
                     </a>
                     <form action="" method="post">
