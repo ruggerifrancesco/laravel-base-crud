@@ -1,8 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 
 // General Tags
-img,
-svg {
+img, svg {
     vertical-align: top !important;
     width: 100%;
     height: auto;
@@ -71,12 +70,9 @@ main.admin-client {
     color: white;
     pointer-events: none;
     cursor: not-allowed;
-    -webkit-user-select: none;
-    /* Safari */
-    -ms-user-select: none;
-    /* IE 10 and IE 11 */
-    user-select: none;
-    /* Standard syntax */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 .pagination .page-link {
