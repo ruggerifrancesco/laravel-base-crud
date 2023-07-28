@@ -43,9 +43,7 @@ main.admin-client {
 // Pagination Element
 
 .pagination {
-    position: absolute;
-    bottom: 5rem;
-    left: 0; 
+    position: relative;
 }
 
 .pagination .page-item {
