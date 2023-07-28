@@ -23,5 +23,6 @@ Route::get('/beaches', [GuestPageController::class, 'index'])->name('guest.beach
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/beaches/trashed', [BeachController::class, 'trashed'])->name('beaches.trashed');
+    Route::delete('/beaches/trashed/{id}', [BeachController::class, 'restore'])->name('beaches.restore');
     Route::resource('/beaches', BeachController::class);
 });
