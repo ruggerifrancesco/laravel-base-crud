@@ -114,6 +114,7 @@ class BeachController extends Controller
     }
 
     public function restore() {
+        
 
     }
 }
