@@ -107,4 +107,12 @@ class BeachController extends Controller
         $beach->delete();
         return redirect()->route("admin.beaches.index");
     }
+
+    public function trashed() {
+        
+    }
+
+    public function restore() {
+
+    }
 }
