@@ -61,7 +61,7 @@
                     <a href="{{ route('admin.beaches.edit', $beach->id) }}" class="btn btn-info">
                         <i class="fa-solid fa-pen"></i>
                     </a>
-                    <form action="{{ route('admin.beaches.destroy', $beach->id) }}" method="post">
+                    <form action="{{ route('admin.beaches.destroy', $beach->id) }}" method="post" class="form-delete">
                     @csrf
                     @method('DELETE')
                         <button type="submit" class="btn btn-danger">
@@ -74,4 +74,19 @@
         </div>
     </div>
 </main>
+@endsection
+
+@section('custom-script-tail')
+<script>
+    const deleteForm = document.querySelectorAll('form.form-delete');
+        deleteForm.forEach(formElement => {
+            formElement.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const userConfirm = window.confirm('Are you sure you want to delete this beach?');
+                if(userConfirm){
+                    this.submit();
+                }
+            })
+        });
+</script>
 @endsection
