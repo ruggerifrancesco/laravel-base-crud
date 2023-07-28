@@ -66,9 +66,11 @@ class BeachController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Int $id)
     {
-        //
+        $beach = Beach::findOrFail($id);
+
+        return view('admin.beaches.edit', compact('beach'));
     }
 
     /**
