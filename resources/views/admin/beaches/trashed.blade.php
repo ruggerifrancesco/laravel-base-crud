@@ -47,17 +47,11 @@
                         @endif
                     </td>
                     <td class="d-flex gap-1 justify-content-center">
-                        <a href="{{ route('admin.beaches.show', $beach->id) }}" class="btn btn-warning">
-                            <i class="fa-solid fa-eye"></i>
-                        </a>
-                        <a href="{{ route('admin.beaches.edit', $beach->id) }}" class="btn btn-info">
-                            <i class="fa-solid fa-pen"></i>
-                        </a>
-                        <form action="{{ route('admin.beaches.destroy', $beach->id) }}" method="post" class="form-delete">
+                        <form action="{{ route('admin.beaches.restore', $beach->id) }}" method="post" class="form-restore">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">
-                                <i class="fa-solid fa-trash"></i>
+                            <button type="submit" class="btn btn-warning">
+                                <i class="fa-solid fa-arrow-rotate-right"></i>
                             </button>
                         </form>
                     </td>
@@ -75,11 +69,11 @@
 
 @section('custom-script-tail')
 <script>
-    const deleteForm = document.querySelectorAll('form.form-delete');
-        deleteForm.forEach(formElement=> {
-            formElement.addEventListener('submit', function(event){
+    const restoreForm = document.querySelectorAll('form.form-restore');
+        restoreForm.forEach(formElement => {
+            formElement.addEventListener('submit', function(event) {
                 event.preventDefault();
-                const userConfirm=window.confirm('Are you sure you want to delete this beach?');
+                const userConfirm = window.confirm('Are you sure you want to restore this beach?');
                 if(userConfirm){
                     this.submit();
                 }
@@ -87,3 +81,5 @@
         });
 </script>
 @endsection
+
+
