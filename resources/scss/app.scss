@@ -1,4 +1,5 @@
 @import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
 // General Tags
 img, svg {
@@ -13,7 +14,7 @@ body.admin-client {
 }
 
 main.admin-client {
-    height: calc(100vh - 70px - 6.5rem);
+    min-height: calc(100vh - 70px - 6.5rem);
     margin-top: 6.5rem;
 }
 
@@ -39,6 +40,65 @@ main.admin-client {
     }
 }
 
+// Card Show
+.card {
+    max-width: 100%;
+    overflow: hidden;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    font-family: 'Muli', sans-serif;
+
+    .show-thumb-container {
+        height: 600px;
+        position: relative;
+
+        .show-thumb {
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .card-titles {
+            position: absolute;
+            left: 50%;
+            bottom: -2rem;
+            color: #0d1117;
+            text-align: center;
+            transform: translateX(-50%);
+            width: 80%;
+            /* From https://css.glass */
+            background: rgb(255, 255, 255);
+            padding: 0.2rem;
+            border-radius: 0 1rem 0 1rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+    }
+
+    .card-body {
+
+        .show-item {
+            background-color: transparent;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+    }
+}
+
+.custom-divider {
+    max-width: 100%;
+    height: 4px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.25rem;
+}
 
 // Pagination Element
 

@@ -8,56 +8,102 @@
         <div class="row">
 
             <div class="card text-white bg-dark p-0 mb-3">
-                <div class="card-header"></div>
                 <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="{{ $beach->thumb }}" class="img-fluid rounded-start" alt="{{ $beach->name }}">
+                  <div class="col-md-4 show-thumb-container">
+                    <img src="{{ $beach->thumb }}" class="show-thumb" alt="{{ $beach->name }}">
+                    <div class="card-titles">
+                        <h3 class="card-title">{{ $beach->name }}</h3>
+                        <h5 class="card-subtitle">{{ $beach->city }}</h5>
+                    </div>
                   </div>
                   <div class="col-md-8">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                        <div>
-                            <h4 class="card-title">{{ $beach->name }}</h4>
-                            <h6 class="card-subtitle">{{ $beach->city }}</h6>
-                        </div>
-                        <ul>
-                            <li>
-                                Opening: {{ $beach->opening_date }}
-                            </li>
-                            <li>
-                                Closing: {{ $beach->closing_date }}
-                            </li>
-                        </ul>
+                    <div class="card-header d-flex justify-content-end">
+                        ID: {{ $beach->id }}
                     </div>
-                      <p class="card-text mt-3">
-                        {{ $beach->description }}
-                      </p>
-                      <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <span>Umbrellas: </span>
-                            {{ $beach->n_umbrellas }}
-                        </li>
-                        <li class="list-group-item">
-                            <span>Seats: </span>
-                            {{ $beach->n_seats }}
-                        </li>
-                        <li class="list-group-item">
-                            <span>Price per Day: </span>
-                            ${{ $beach->umbrellas_day_price  }}
-                        </li>
-                        <li class="list-group-item">
-                            <span>Volley:</span>
-                            {{ $beach->has_volley ? 'YES' : 'NO' }}
-                        </li>
-                        <li class="list-group-item">
-                            <span>Football:</span>
-                            {{ $beach->has_football ? 'YES' : 'NO' }}
-                        </li>
-                      </ul>
+                    <div class="card-body px-5">
+
+                        {{-- Text Related Section --}}
+                        <section class="description px-5">
+
+                            <p class="card-text my-4">
+                                {{ $beach->description }}
+                            </p>
+                            <figure>
+                                <blockquote class="blockquote">
+                                  <p>A well-known quote, contained in a blockquote element.</p>
+                                </blockquote>
+                                <figcaption class="blockquote-footer">
+                                  Someone famous in <cite title="Source Title">Source Title</cite>
+                                </figcaption>
+                            </figure>
+                        </section>
+
+                        <hr class="custom-divider">
+
+                        <section class="show-data px-5">
+
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item show-item">
+                                    <ul class="list-unstyled w-100">
+                                        <li class="d-flex justify-content-between align-items-start">
+                                            Opening Date:
+                                            <span class="badge bg-info rounded-pill">
+                                                {{ $beach->opening_date }}
+                                            </span>
+                                        </li>
+                                        <li class="d-flex justify-content-between align-items-start">
+                                            Closing Date:
+                                            <span class="badge bg-info rounded-pill">
+                                                {{ $beach->closing_date }}
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="list-group-item show-item">
+                                    <ul class="list-unstyled w-100">
+                                        <li class="d-flex justify-content-between align-items-start">
+                                            Umbrellas:
+                                            <span class="badge bg-info rounded-pill">
+                                                {{ $beach->n_umbrellas }}
+                                            </span>
+                                        </li>
+                                        <li class="d-flex justify-content-between align-items-start">
+                                            Seats:
+                                            <span class="badge bg-info rounded-pill">
+                                                {{ $beach->n_seats }}
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="list-group-item show-item">
+                                    Price:
+                                    <span class="badge bg-warning rounded-pill">
+                                        ${{ $beach->umbrellas_day_price  }}
+                                    </span>
+                                </li>
+                                <li class="list-group-item show-item">
+                                    Volley:
+                                    @if ($beach->has_volley)
+                                    <span class="badge rounded-pill bg-success text-white">YES</span>
+                                    @else
+                                    <span class="badge rounded-pill bg-danger text-white">NO</span>
+                                    @endif
+                                </li>
+                                <li class="list-group-item show-item">
+                                    Football:
+                                    @if ($beach->has_football)
+                                    <span class="badge rounded-pill bg-success text-white">YES</span>
+                                    @else
+                                    <span class="badge rounded-pill bg-danger text-white">NO</span>
+                                    @endif
+                                </li>
+                            </ul>
+                        </section>
+
                     </div>
                   </div>
                 </div>
-                <div class="card-footer d-flex gap-1 justify-content-center">
+                <div class="card-footer d-flex gap-1 justify-content-end">
                     <a href="{{ route('admin.beaches.edit', $beach->id) }}" class="btn btn-info">
                         <i class="fa-solid fa-pen"></i>
                     </a>
