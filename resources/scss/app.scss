@@ -1,7 +1,8 @@
 @import "~bootstrap/scss/bootstrap";
 
 // General Tags
-img, svg {
+img,
+svg {
     vertical-align: top !important;
     width: 100%;
     height: auto;
@@ -9,7 +10,8 @@ img, svg {
 
 // Admin Client
 body.admin-client {
-    background-color: #0d1117;
+    //background-color: #0d1117;
+    background-color: green;
 }
 
 main.admin-client {
@@ -43,9 +45,7 @@ main.admin-client {
 // Pagination Element
 
 .pagination {
-    position: absolute;
-    bottom: 5rem;
-    left: 0; 
+    position: relative;
 }
 
 .pagination .page-item {
@@ -72,9 +72,12 @@ main.admin-client {
     color: white;
     pointer-events: none;
     cursor: not-allowed;
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
 }
 
 .pagination .page-link {
