@@ -107,4 +107,14 @@ class BeachController extends Controller
         $beach->delete();
         return redirect()->route("admin.beaches.index");
     }
+
+    public function trashed() {
+        $beaches = Beach::onlyTrashed()->paginate(10);
+        return view('admin.beaches.trashed', compact('beaches'));
+    }
+
+    public function restore() {
+        
+
+    }
 }
