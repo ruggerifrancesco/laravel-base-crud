@@ -22,4 +22,6 @@ return [
         'Lido le 5 terre',
         'Spiaggia Tropical'
     ],
+
+    'elements' => 30,
 ];
