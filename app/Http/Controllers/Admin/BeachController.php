@@ -109,7 +109,8 @@ class BeachController extends Controller
     }
 
     public function trashed() {
-        
+        $beaches = Beach::onlyTrashed()->paginate(10);
+        return view('admin.beaches.trashed', compact('beaches'));
     }
 
     public function restore() {
