@@ -2,13 +2,13 @@
     <!-- Previous Page Link -->
     @if ($paginator->onFirstPage())
         <li class="page-item disabled" aria-disabled="true">
-            <span class="page-link edit-pagination">
+            <span class="page-link">
                 <i class="fa-solid fa-angles-left"></i>
             </span>
         </li>
     @else
         <li class="page-item">
-            <a class="page-link edit-pagination" href="{{ $paginator->previousPageUrl() }}" rel="prev">
+            <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev">
                 <i class="fa-solid fa-angles-left"></i>
             </a>
         </li>
@@ -36,13 +36,13 @@
     <!-- Next Page Link -->
     @if ($paginator->hasMorePages())
         <li class="page-item">
-            <a class="page-link edit-pagination" href="{{ $paginator->nextPageUrl() }}" rel="next">
+            <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next">
                 <i class="fa-solid fa-angles-right"></i>
             </a>
         </li>
     @else
         <li class="page-item disabled" aria-disabled="true">
-            <span class="page-link edit-pagination">
+            <span class="page-link">
                 <i class="fa-solid fa-angles-right"></i>
             </span>
         </li>

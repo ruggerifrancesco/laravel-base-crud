@@ -7,7 +7,6 @@
     <div class="row">
         <div class="container text-white">
 
-            <h3 class="text-center mb-5">Create New Beach</h3>
             <form action="{{ route('admin.beaches.store') }}" method="POST" id="createBeachForm">
                 @csrf
 
