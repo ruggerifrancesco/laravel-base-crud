@@ -75,10 +75,10 @@
 
 @section('custom-script-tail')
 <script>
-    const deleteForm = document.querySelectorAll('form-delete');
-        deleteForm.foreach(formElement=> {
+    const deleteForm = document.querySelectorAll('form.form-delete');
+        deleteForm.forEach(formElement=> {
             formElement.addEventListener('submit', function(event){
-                event.preventDeFault();
+                event.preventDefault();
                 const userConfirm=window.confirm('Are you sure you want to delete this beach?');
                 if(userConfirm){
                     this.submit();
