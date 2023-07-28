@@ -72,13 +72,14 @@
     </div>
 </div>
 @endsection
+
 @section('custom-script-tail')
 <script>
     const deleteForm = document.querySelectorAll('form.form-delete');
-        deleteForm.forEach(formElement=> {
-            formElement.addEventListener('submit', function(event){
+        deleteForm.forEach(formElement => {
+            formElement.addEventListener('submit', function(event) {
                 event.preventDefault();
-                const userConfirm=window.confirm('Are you sure you want to delete this beach?');
+                const userConfirm = window.confirm('Are you sure you want to delete this beach?');
                 if(userConfirm){
                     this.submit();
                 }
@@ -86,3 +87,4 @@
         });
 </script>
 @endsection
+
