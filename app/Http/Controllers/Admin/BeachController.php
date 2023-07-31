@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Beach;
 use Illuminate\Http\Request;
+use App\Http\Requests\BeachRequest;
 
 class BeachController extends Controller
 {
@@ -36,17 +37,24 @@ class BeachController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BeachRequest $request)
     {
         $beaches = $request->all();
         $beaches['has_volley'] = $request->has('has_volley') ? 1 : 0;
         $beaches['has_football'] = $request->has('has_football') ? 1 : 0;
 
+
         $beach = new Beach();
         $beach->fill($beaches);
-        $beach->save();
 
-        return redirect()->route('admin.beaches.index', $beach->id);
+        // Attempt to save the beach
+        if ($beach->save()) {
+            // If the save is successful, redirect to the index page
+            return redirect()->route('admin.beaches.index');
+        } else {
+            // If the save fails, redirect back to the create page with the validation errors
+            return redirect()->route('admin.beaches.create')->withErrors('Failed to save the beach.');
+        }
     }
 
     /**
@@ -82,7 +90,7 @@ class BeachController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update (Request $request, Int $id)
+    public function update (BeachRequest $request, Int $id)
     {
         $beaches = $request->all();
         $beaches['has_volley'] = $request->has('has_volley') ? 1 : 0;
@@ -90,9 +98,15 @@ class BeachController extends Controller
 
         $beach = Beach::findOrFail($id);
         $beach->fill($beaches);
-        $beach->save();
 
-        return redirect()->route('admin.beaches.show', $beach->id);
+        // Attempt to save the beach
+        if ($beach->save()) {
+            // If the save is successful, redirect to the show page
+            return redirect()->route('admin.beaches.show', $beach->id);
+        } else {
+            // If the save fails, redirect back to the edit page with the validation errors
+            return redirect()->route('admin.beaches.edit')->withErrors('Failed to save the beach.');
+        }
     }
 
     /**

@@ -7,6 +7,16 @@
     <div class="row">
         <div class="container text-white">
 
+            @if($errors->any())
+                <div class="alert alert-warning" role="alert">
+                    <ul class="m-0">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif              
+
             <form action="{{ route('admin.beaches.update', $beach->id) }}" method="POST" id="editBeachForm">
                 @csrf
                 @method('PUT')
@@ -46,9 +56,10 @@
                     <div class="col-6">
                         <div class="mb-3">
                             <label for="thumb" class="form-label">
-                                Image url (DISABLED)
+                                Image url
                             </label>
-                            <input type="text" class="form-control" id="thumb" disabled>
+                            <input type="text" class="form-control" id="thumb" name="thumb"
+                            value="{{ old('thumb', $beach->thumb) }}" required>
                         </div>
                         <div class="mb-3">
                             <label for="umbrellas_day_price " class="form-label">

@@ -22,5 +22,6 @@ class Beach extends Model
         'has_volley',
         'has_football',
         'description',
+        'thumb',
     ];
 }
